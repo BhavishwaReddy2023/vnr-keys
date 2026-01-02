@@ -92,15 +92,19 @@ const CompleteRegistrationPage = () => {
   }, [user, navigate, getRoleBasedRoute]);
 
   const departments = [
-    { value: "CSE", label: "Computer Science Engineering" },
-    { value: "EEE", label: "Electrical & Electronics Engineering" },
-    { value: "CSE-AIML", label: "CSE - Artificial Intelligence & Machine Learning" },
-    { value: "CSE_AIDS", label: "CSE - (CYS,DS) and AI&DS" },
-    { value: "IoT", label: "Internet of Things" },
-    { value: "ECE", label: "Electronics & Communication Engineering" },
-    { value: "MECH", label: "Mechanical Engineering" },
-    { value: "CIVIL", label: "Civil Engineering" },
-    { value: "IT", label: "Information Technology" },
+    { value: "Automobile", label: "Automobile" },
+    { value: "Chemistry", label: "Chemistry" },
+    { value: "Civil", label: "Civil" },
+    { value: "CSE", label: "CSE" },
+    { value: "CSE-AIML&IOT", label: "CSE-AIML&IOT" },
+    { value: "CSE-(CyS,DS)_and_AI&DS", label: "CSE-(CyS,DS)_and_AI&DS" },
+    { value: "EEE", label: "EEE" },
+    { value: "ECE", label: "ECE" },
+    { value: "EIE", label: "EIE" },
+    { value: "English", label: "English" },
+    { value: "IT", label: "IT" },
+    { value: "MECH", label: "MECH" },
+    { value: "Other", label: "Other" }
   ];
 
   return (

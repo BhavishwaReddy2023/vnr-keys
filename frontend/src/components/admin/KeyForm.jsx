@@ -59,17 +59,33 @@ const KeyForm = ({
 
   // Departments for dropdown - matching backend schema
   const departments = [
-    { value: 'CSE', label: 'Computer Science Engineering' },
-    { value: 'EEE', label: 'Electrical and Electronics Engineering' },
-    { value: 'AIML', label: 'Artificial Intelligence and Machine Learning' },
-    { value: 'IoT', label: 'Internet of Things' },
-    { value: 'ECE', label: 'Electronics and Communication Engineering' },
-    { value: 'MECH', label: 'Mechanical Engineering' },
-    { value: 'CIVIL', label: 'Civil Engineering' },
-    { value: 'IT', label: 'Information Technology' },
-    { value: 'ADMIN', label: 'Administration' },
-    { value: 'RESEARCH', label: 'Research Department' },
-    { value: 'COMMON', label: 'Common (All Departments)' }
+    { value: 'Accounts', label: 'Accounts' },
+    { value: 'Admission', label: 'Admission' },
+    { value: 'Automobile', label: 'Automobile' },
+    { value: 'CAMS', label: 'CAMS' },
+    { value: 'Chemistry', label: 'Chemistry' },
+    { value: 'Civil', label: 'Civil' },
+    { value: 'CSE', label: 'CSE' },
+    { value: 'CSE-AIML&IOT', label: 'CSE-AIML&IOT' },
+    { value: 'CSE-(CyS,DS)_and_AI&DS', label: 'CSE-(CyS,DS)_and_AI&DS' },
+    { value: 'Director', label: 'Director' },
+    { value: 'EEE', label: 'EEE' },
+    { value: 'ECE', label: 'ECE' },
+    { value: 'EIE', label: 'EIE' },
+    { value: 'English', label: 'English' },
+    { value: 'GRO', label: 'GRO' },
+    { value: 'HR', label: 'HR' },
+    { value: 'IQAC', label: 'IQAC' },
+    { value: 'IT', label: 'IT' },
+    { value: 'MECH', label: 'MECH' },
+    { value: 'Other', label: 'Other' },
+    { value: 'PAAC', label: 'PAAC' },
+    { value: 'Placement', label: 'Placement' },
+    { value: 'Principal', label: 'Principal' },
+    { value: 'Purchase', label: 'Purchase' },
+    { value: 'RCC', label: 'RCC' },
+    { value: 'SSC', label: 'SSC' },
+    { value: 'VJ_Hub', label: 'VJ_Hub' }
   ];
 
   useEffect(() => {

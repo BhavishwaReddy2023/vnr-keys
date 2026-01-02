@@ -21,49 +21,37 @@ if (config.auth.google.clientId && config.auth.google.clientSecret) {
     async (accessToken, refreshToken, profile, done) => {
       try {
         console.log("🔍 Google OAuth Profile:", profile);
+        const googleEmail = profile.emails[0].value;
 
-        // Check if user already exists with this Google ID
-        let user = await User.findOne({ googleId: profile.id });
-
-        if (user) {
-          console.log("✅ Existing Google user found:", user.email);
-          return done(null, user);
+        // ✅ VALIDATION 1: Check if email is from @vnrvjiet.in domain
+        if (!googleEmail.endsWith('@vnrvjiet.in')) {
+          console.warn("❌ Invalid email domain. Email must be @vnrvjiet.in:", googleEmail);
+          return done(new Error('INVALID_EMAIL_DOMAIN'), null);
         }
 
-        // Check if user exists with the same email
-        user = await User.findOne({ email: profile.emails[0].value });
+        // ✅ VALIDATION 2: Check if user exists in DB with this email
+        let user = await User.findOne({ email: googleEmail });
 
-        if (user) {
-          // User exists with same email - link Google account to existing user
-          console.log("🔗 Linking Google account to existing user:", user.email);
+        if (!user) {
+          console.warn("❌ User not found in database:", googleEmail);
+          return done(new Error('USER_NOT_IN_DATABASE'), null);
+        }
 
-          // Update existing user with Google ID and provider info
+        // ✅ User exists - update Google account if different
+        if (user.googleId && user.googleId !== profile.id) {
+          console.warn("⚠️ Different Google ID detected - updating:", googleEmail);
+          user.googleId = profile.id; // Update to new Google ID
+        } else if (!user.googleId) {
+          console.log("🔗 Linking Google account to existing user:", googleEmail);
           user.googleId = profile.id;
-          user.provider = "google";
-          user.avatar = profile.photos[0]?.value || user.avatar;
-          user.lastLogin = new Date();
-
-          await user.save();
-          console.log("✅ Google account linked to existing user:", user.email);
-          return done(null, user);
         }
 
-        // Create new user with Google account (incomplete registration)
-        console.log("➕ Creating new Google user:", profile.emails[0].value);
-
-        user = new User({
-          googleId: profile.id,
-          name: profile.displayName,
-          email: profile.emails[0].value,
-          provider: "google",
-          avatar: profile.photos[0]?.value,
-          role: "pending", // Pending role - user needs to complete registration
-          isVerified: true,
-          lastLogin: new Date(),
-        });
+        user.provider = "google";
+        user.avatar = profile.photos[0]?.value || user.avatar;
+        user.lastLogin = new Date();
 
         await user.save();
-        console.log("✅ New Google user created (needs registration):", user.email);
+        console.log("✅ Google user authenticated:", googleEmail, "with role:", user.role);
         return done(null, user);
       } catch (error) {
         console.error("❌ Google OAuth error:", error);

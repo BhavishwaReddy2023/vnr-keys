@@ -77,22 +77,21 @@ const logbookSchema = new mongoose.Schema(
     department: {
       type: String,
       enum: [
-        "CSE", // Computer Science Engineering
-        "EEE", // Electrical and Electronics Engineering
-        "AIML", // Artificial Intelligence and Machine Learning
-        "CSE_CYS", // CSE - Cyber Security
-        "CSE_DS", // CSE - Data Science
-        "CSE_AIDS", // CSE - AI & Data Science
-        "IoT", // Internet of Things
-        "ECE", // Electronics and Communication Engineering
-        "MECH", // Mechanical Engineering
-        "CIVIL", // Civil Engineering
-        "IT", // Information Technology
-        "ADMIN", // Administration
-        "RESEARCH", // Research Department
-        "COMMON" // Common keys accessible to all departments
+        "Automobile",
+        "Chemistry",
+        "Civil",
+        "CSE",
+        "CSE-AIML&IOT",
+        "CSE-(CyS,DS)_and_AI&DS",
+        "EEE",
+        "ECE",
+        "EIE",
+        "English",
+        "MECH",
+        "IT",
+        "Other"
       ],
-      default: "COMMON",
+      default: "Other",
     },
     block: {
       type: String,

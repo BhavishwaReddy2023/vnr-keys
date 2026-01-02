@@ -19,15 +19,19 @@ const userSchema = new mongoose.Schema(
     department: {
       type: String,
       enum: [
+        "Automobile",
+        "Chemistry",
+        "Civil",
         "CSE",
+        "CSE-AIML&IOT",
+        "CSE-(CyS,DS)_and_AI&DS",
         "EEE",
-        "CSE-AIML",
-        "CSE_AIDS",
-        "IoT",
         "ECE",
+        "EIE",
+        "English",
         "MECH",
-        "CIVIL",
-        "IT"
+        "IT",
+        "Other"
       ],
       required: function() {
         // Department is required only for faculty

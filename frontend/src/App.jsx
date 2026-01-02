@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/auth/LoginPage";
-import CompleteRegistrationPage from "./pages/auth/CompleteRegistrationPage";
 import LoadingSpinner from "./components/ui/LoadingSpinner";
 
 // Security Dashboard Pages
@@ -43,11 +42,6 @@ const ProtectedRoute = ({ children }) => {
 		return <Navigate to='/login' replace />;
 	}
 
-	// Check if user needs to complete registration
-	if (user && (user.role === 'pending' || (user.role === 'faculty' && (!user.department || !user.facultyId)))) {
-		return <Navigate to='/complete-registration' replace />;
-	}
-
 	return children;
 };
 
@@ -56,11 +50,6 @@ const RedirectAuthenticatedUser = ({ children }) => {
 	const { isAuthenticated, user, getRoleBasedRoute } = useAuthStore();
 
 	if (isAuthenticated && user) {
-		// Check if user needs to complete registration
-		if (user.role === 'pending' || (user.role === 'faculty' && (!user.department || !user.facultyId))) {
-			return <Navigate to='/complete-registration' replace />;
-		}
-
 		// Check for last visited route
 		const lastVisitedRoute = localStorage.getItem('lastVisitedRoute');
 		if (lastVisitedRoute) {
@@ -254,10 +243,6 @@ function App() {
 							<LoginPage />
 						</RedirectAuthenticatedUser>
 					}
-				/>
-				<Route
-					path='/complete-registration'
-					element={<CompleteRegistrationPage />}
 				/>
 
 				{/* catch all routes */}

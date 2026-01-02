@@ -11,7 +11,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block A",
     "description": "Class Room",
     "category": "classroom",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -29,7 +29,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block A",
     "description": "SSC",
     "category": "office",
-    "department": "ADMIN",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -38,7 +38,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block A",
     "description": "Library",
     "category": "library",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -47,7 +47,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block A",
     "description": "Students Gores",
     "category": "other",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -83,7 +83,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block A",
     "description": "Washroom",
     "category": "other",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -101,7 +101,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block A",
     "description": "Class Room",
     "category": "classroom",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -110,7 +110,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block B",
     "description": "General Room",
     "category": "other",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -119,7 +119,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block B",
     "description": "Staff Room",
     "category": "classroom",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -128,7 +128,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block B",
     "description": "HOD Room",
     "category": "office",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -164,7 +164,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block B",
     "description": "Washroom",
     "category": "other",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -173,7 +173,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block B",
     "description": "Seminar Hall",
     "category": "auditorium",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -182,7 +182,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block C",
     "description": "KS Auditorium",
     "category": "auditorium",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -191,7 +191,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block C",
     "description": "Panel Room",
     "category": "office",
-    "department": "ADMIN",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -200,7 +200,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block C",
     "description": "Transport Office",
     "category": "office",
-    "department": "ADMIN",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -209,7 +209,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block C",
     "description": "Lunch Room",
     "category": "cafeteria",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -218,7 +218,7 @@ const sampleKeys = [
     "location": "Ground Floor - Block C",
     "description": "Washroom",
     "category": "other",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -263,7 +263,7 @@ const sampleKeys = [
     "location": "First Floor - Block A",
     "description": "Washroom",
     "category": "other",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -344,7 +344,7 @@ const sampleKeys = [
     "location": "First Floor - Block A",
     "description": "Washroom",
     "category": "other",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -353,7 +353,7 @@ const sampleKeys = [
     "location": "First Floor - Block A",
     "description": "ECS Lab",
     "category": "lab",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   },
   {
@@ -362,7 +362,7 @@ const sampleKeys = [
     "location": "First Floor - Block A",
     "description": "ECS Lab",
     "category": "lab",
-    "department": "COMMON",
+    "department": "Other",
     "frequentlyUsed": false
   }
 ];
