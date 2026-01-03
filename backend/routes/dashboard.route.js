@@ -5,6 +5,7 @@ import {
 	getSecurityDashboard,
 	getUserProfile,
 	getAllUsers,
+	createUser,
 	updateUser,
 	deleteUser,
 	toggleUserVerification,
@@ -30,6 +31,7 @@ router.get("/security", rolePermissions.adminOrSecurity, getSecurityDashboard);
 
 // Admin-only user management endpoints
 router.get("/users", rolePermissions.adminOnly, getAllUsers);
+router.post("/users", rolePermissions.adminOnly, createUser);
 router.put("/users/:userId", rolePermissions.adminOnly, updateUser);
 router.delete("/users/:userId", rolePermissions.adminOnly, deleteUser);
 router.patch("/users/:userId/verify", rolePermissions.adminOnly, toggleUserVerification);

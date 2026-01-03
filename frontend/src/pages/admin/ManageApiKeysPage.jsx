@@ -650,16 +650,12 @@ const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
                 <option value="C">C</option>
                 <option value="D">D</option>
                 <option value="E">E</option>
-                <option value="F">F</option>
-                <option value="G">G</option>
-                <option value="H">H</option>
                 <option value="PG">PG</option>
-                <option value="MAIN">MAIN</option>
-                <option value="LIB">LIB</option>
-                <option value="AUD">AUD</option>
-                <option value="CAF">CAF</option>
-                <option value="HOSTEL">HOSTEL</option>
-                <option value="OTHER">OTHER</option>
+                <option value="Library">LIB</option>
+                <option value="Auditorium">AUD</option>
+                <option value="Cafeteria">CAF</option>
+                <option value="Hostel">HOSTEL</option>
+                <option value="Other">OTHER</option>
               </select>
             </div>
           </div>

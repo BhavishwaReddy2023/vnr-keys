@@ -6,7 +6,7 @@
 export const getCategoryLabel = (category) => {
   const categoryMap = {
     'classroom': 'Classroom',
-    'lab': 'Laboratory',
+    'lab': 'Lab',
     'office': 'Office',
     'storage': 'Storage',
     'library': 'Library',
@@ -15,6 +15,7 @@ export const getCategoryLabel = (category) => {
     'hostel': 'Hostel',
     'maintenance': 'Maintenance',
     'security': 'Security',
+    'staffroom': 'Staffroom',
     'other': 'Other'
   };
   return categoryMap[category] || category;

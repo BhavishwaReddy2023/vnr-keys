@@ -26,7 +26,7 @@ const KeyForm = ({
   // Categories for dropdown - matching backend schema
   const categories = [
     { value: 'classroom', label: 'Classroom' },
-    { value: 'lab', label: 'Laboratory' },
+    { value: 'lab', label: 'Lab' },
     { value: 'office', label: 'Office' },
     { value: 'storage', label: 'Storage' },
     { value: 'library', label: 'Library' },
@@ -35,6 +35,7 @@ const KeyForm = ({
     { value: 'hostel', label: 'Hostel' },
     { value: 'maintenance', label: 'Maintenance' },
     { value: 'security', label: 'Security' },
+    { value: 'staffroom', label: 'Staffroom' },
     { value: 'other', label: 'Other' }
   ];
 
