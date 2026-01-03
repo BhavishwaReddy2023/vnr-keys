@@ -96,8 +96,7 @@ const apiKeySchema = new mongoose.Schema(
 );
 
 // Indexes for better performance
-apiKeySchema.index({ keyId: 1 });
-apiKeySchema.index({ apiKey: 1 });
+// Note: keyId and apiKey have unique: true so they automatically create indexes
 apiKeySchema.index({ department: 1 });
 apiKeySchema.index({ isActive: 1 });
 apiKeySchema.index({ createdBy: 1 });

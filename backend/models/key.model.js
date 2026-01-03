@@ -93,6 +93,7 @@ const keySchema = new mongoose.Schema(
         "English",
         "GRO",
         "HR",
+        "Humanity and sciences(H&S)",
         "IQAC",
         "IT",
         "MECH",

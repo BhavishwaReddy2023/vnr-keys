@@ -1610,6 +1610,604 @@ const keysData = [
     "status": "available",
     "block": "PG",
     "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["B004"],
+    "location": "Ground Floor - Block B",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["B005"],
+    "location": "Ground Floor - Block B",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["B322"],
+    "location": "Third Floor - Block B",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A306"],
+    "location": "Third Floor - Block A",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A307"],
+    "location": "Third Floor - Block A",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A308"],
+    "location": "Third Floor - Block A",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A309"],
+    "location": "Third Floor - Block A",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A310"],
+    "location": "Third Floor - Block A",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A313"],
+    "location": "Third Floor - Block A",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P203"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P204"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P206"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P207"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P208"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P209"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P211"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P212"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P216"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P217"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P219"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P222"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P223"],
+    "location": "Second Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P014"],
+    "location": "Ground Floor - Block P",
+    "description": "EEE Laboratory",
+    "category": "lab",
+    "department": "EEE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+
+  {
+    "keyNumber": "1",
+    "keyName": ["B301"],
+    "location": "Third Floor - Block B",
+    "description": "EEE Staff Room",
+    "category": "staffroom",
+    "department": "EEE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["B302"],
+    "location": "Third Floor - Block B",
+    "description": "EEE Staff Room",
+    "category": "staffroom",
+    "department": "EEE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["B303"],
+    "location": "Third Floor - Block B",
+    "description": "EEE Staff Room",
+    "category": "staffroom",
+    "department": "EEE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["B305"],
+    "location": "Third Floor - Block B",
+    "description": "EEE Staff Room",
+    "category": "staffroom",
+    "department": "EEE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["B201"],
+    "location": "Second Floor - Block B",
+    "description": "ECE Discussion Room",
+    "category": "other",
+    "department": "ECE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["B202"],
+    "location": "Second Floor - Block B",
+    "description": "ECE Staff Room",
+    "category": "staffroom",
+    "department": "ECE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["B203"],
+    "location": "Second Floor - Block B",
+    "description": "ECE Staff Room",
+    "category": "staffroom",
+    "department": "ECE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["B204"],
+    "location": "Second Floor - Block B",
+    "description": "ECE Staff Room",
+    "category": "staffroom",
+    "department": "ECE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["B205"],
+    "location": "Second Floor - Block B",
+    "description": "ECE Staff Room",
+    "category": "staffroom",
+    "department": "ECE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+
+  {
+    "keyNumber": "1",
+    "keyName": ["B222"],
+    "location": "Second Floor - Block B",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "B",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A202"],
+    "location": "Second Floor - Block A",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A203"],
+    "location": "Second Floor - Block A",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A206"],
+    "location": "Second Floor - Block A",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A207"],
+    "location": "Second Floor - Block A",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A208"],
+    "location": "Second Floor - Block A",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A209"],
+    "location": "Second Floor - Block A",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["A212"],
+    "location": "Second Floor - Block A",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "A",
+    "frequentlyUsed": false
+  },
+
+  {
+    "keyNumber": "1",
+    "keyName": ["P101"],
+    "location": "First Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P1021"],
+    "location": "First Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P103"],
+    "location": "First Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P104"],
+    "location": "First Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P105"],
+    "location": "First Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P106"],
+    "location": "First Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P109"],
+    "location": "First Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P111"],
+    "location": "First Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P112"],
+    "location": "First Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P202"],
+    "location": "Second Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P301"],
+    "location": "Third Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["P310"],
+    "location": "Third Floor - Block P",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "P",
+    "frequentlyUsed": false
+  },
+
+  {
+    "keyNumber": "1",
+    "keyName": ["C207"],
+    "location": "Second Floor - Block C",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "C",
+    "frequentlyUsed": false
+  },
+  {
+    "keyNumber": "1",
+    "keyName": ["C208"],
+    "location": "Second Floor - Block C",
+    "description": "ECE Laboratory",
+    "category": "lab",
+    "department": "ECE",
+    "status": "available",
+    "block": "C",
+    "frequentlyUsed": false
   }
 ];
 
@@ -1656,28 +2254,37 @@ const insertKeys = async () => {
       });
     });
 
-    // Insert keys one by one and check for existing keys
+    // Upsert keys (insert if not exists, update if exists)
     let insertedCount = 0;
-    let skippedCount = 0;
+    let updatedCount = 0;
     let errorCount = 0;
     const insertedByDept = {};
-    const skippedByDept = {};
+    const updatedByDept = {};
     const errorByDept = {};
 
     for (const keyData of keysToInsert) {
       try {
-        // Check if key already exists
-        const existingKey = await Key.findOne({ keyName: keyData.keyName });
-        
-        if (existingKey) {
-          console.log(`⚠️  Skipped: ${keyData.keyName} - already exists`);
-          skippedCount++;
-          skippedByDept[keyData.department] = (skippedByDept[keyData.department] || 0) + 1;
-        } else {
-          await Key.create(keyData);
+        // Use findOneAndUpdate with upsert option
+        const result = await Key.findOneAndUpdate(
+          { keyName: keyData.keyName },  // Filter: find by keyName
+          keyData,                        // Update: use the keyData
+          { 
+            new: true,                   // Return the updated document
+            upsert: true                 // Insert if doesn't exist
+          }
+        );
+
+        // Check if this was a new insert or an update
+        if (result.createdAt === result.updatedAt || result.updatedAt <= new Date(result.createdAt.getTime() + 1000)) {
+          // This is a new document (inserted)
           console.log(`✅ Inserted: ${keyData.keyName} (${keyData.department})`);
           insertedCount++;
           insertedByDept[keyData.department] = (insertedByDept[keyData.department] || 0) + 1;
+        } else {
+          // This is an existing document (updated)
+          console.log(`🔄 Updated: ${keyData.keyName} (${keyData.department})`);
+          updatedCount++;
+          updatedByDept[keyData.department] = (updatedByDept[keyData.department] || 0) + 1;
         }
       } catch (error) {
         console.error(`❌ Error inserting ${keyData.keyName}: ${error.message}`);
@@ -1691,20 +2298,20 @@ const insertKeys = async () => {
     console.log("📊 INSERTION SUMMARY");
     console.log("=".repeat(50));
     console.log(`✅ Inserted: ${insertedCount}`);
-    console.log(`⚠️  Skipped: ${skippedCount}`);
+    console.log(`🔄 Updated: ${updatedCount}`);
     console.log(`❌ Errors: ${errorCount}`);
     console.log(`📝 Total processed: ${keysToInsert.length}`);
     
     if (Object.keys(insertedByDept).length > 0) {
-      console.log("\n📊 Inserted by department:");
+      console.log("\n✅ Inserted by department:");
       Object.entries(insertedByDept).sort().forEach(([dept, count]) => {
         console.log(`  ${dept}: ${count}`);
       });
     }
 
-    if (Object.keys(skippedByDept).length > 0) {
-      console.log("\n⚠️  Skipped by department:");
-      Object.entries(skippedByDept).sort().forEach(([dept, count]) => {
+    if (Object.keys(updatedByDept).length > 0) {
+      console.log("\n🔄 Updated by department:");
+      Object.entries(updatedByDept).sort().forEach(([dept, count]) => {
         console.log(`  ${dept}: ${count}`);
       });
     }
