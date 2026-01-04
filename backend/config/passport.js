@@ -24,10 +24,11 @@ if (config.auth.google.clientId && config.auth.google.clientSecret) {
         const googleEmail = profile.emails[0].value;
 
         // ✅ VALIDATION 1: Check if email is from @vnrvjiet.in domain
-        if (!googleEmail.endsWith('@vnrvjiet.in')) {
-          console.warn("❌ Invalid email domain. Email must be @vnrvjiet.in:", googleEmail);
-          return done(new Error('INVALID_EMAIL_DOMAIN'), null);
-        }
+        // COMMENTED OUT - To be applied later
+        // if (!googleEmail.endsWith('@vnrvjiet.in')) {
+        //   console.warn("❌ Invalid email domain. Email must be @vnrvjiet.in:", googleEmail);
+        //   return done(new Error('INVALID_EMAIL_DOMAIN'), null);
+        // }
 
         // ✅ VALIDATION 2: Check if user exists in DB with this email
         let user = await User.findOne({ email: googleEmail });
