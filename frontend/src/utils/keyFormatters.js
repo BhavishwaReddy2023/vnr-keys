@@ -6,7 +6,7 @@
 export const getCategoryLabel = (category) => {
   const categoryMap = {
     'classroom': 'Classroom',
-    'lab': 'Laboratory',
+    'lab': 'Lab',
     'office': 'Office',
     'storage': 'Storage',
     'library': 'Library',
@@ -15,6 +15,7 @@ export const getCategoryLabel = (category) => {
     'hostel': 'Hostel',
     'maintenance': 'Maintenance',
     'security': 'Security',
+    'staffroom': 'Staffroom',
     'other': 'Other'
   };
   return categoryMap[category] || category;
@@ -73,20 +74,33 @@ export const getBlockInfo = (block) => {
  */
 export const getDepartmentLabel = (department) => {
   const departmentMap = {
+    'Accounts': 'Accounts',
+    'Admission': 'Admission',
+    'Automobile': 'Automobile',
+    'CAMS': 'CAMS',
+    'Chemistry': 'Chemistry',
+    'Civil': 'Civil',
     'CSE': 'Computer Science Engineering',
+    'CSE-AIML&IOT': 'CSE - AIML & IOT',
+    'CSE-(CyS,DS)_and_AI&DS': 'CSE - (CyS, DS) and AI&DS',
+    'Director': 'Director',
     'EEE': 'Electrical and Electronics Engineering',
-    'CSE_AIDS' : 'CSE - (CYS,DS) and AI&DS',
-    'CSE_CYS' : 'CSE - (CYS,DS) and AI&DS',
-    'CSE_DS' : 'CSE - (CYS,DS) and AI&DS',
-    'AIML': 'Artificial Intelligence and Machine Learning',
-    'IoT': 'Internet of Things',
     'ECE': 'Electronics and Communication Engineering',
-    'MECH': 'Mechanical Engineering',
-    'CIVIL': 'Civil Engineering',
+    'EIE': 'Electronics and Instrumentation Engineering',
+    'English': 'English',
+    'GRO': 'GRO',
+    'HR': 'Human Resources',
+    'IQAC': 'IQAC',
     'IT': 'Information Technology',
-    'ADMIN': 'Administration',
-    'RESEARCH': 'Research Department',
-    'COMMON': 'Common (All Departments)'
+    'MECH': 'Mechanical Engineering',
+    'Other': 'Other',
+    'PAAC': 'PAAC',
+    'Placement': 'Placement',
+    'Principal': 'Principal',
+    'Purchase': 'Purchase',
+    'RCC': 'RCC',
+    'SSC': 'SSC',
+    'VJ_Hub': 'VJ Hub'
   };
   return departmentMap[department] || department;
 };

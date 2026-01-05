@@ -472,7 +472,7 @@ const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
     location: '',
     description: '',
     category: 'other',
-    department: 'COMMON',
+    department: 'Other',
     block: 'A',
     frequentlyUsed: false
   });
@@ -488,7 +488,7 @@ const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
         location: '',
         description: '',
         category: 'other',
-        department: 'COMMON',
+        department: 'Other',
         block: 'A',
         frequentlyUsed: false
       });
@@ -605,20 +605,33 @@ const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
                 onChange={handleChange}
                 className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
+                <option value="Accounts">Accounts</option>
+                <option value="Admission">Admission</option>
+                <option value="Automobile">Automobile</option>
+                <option value="CAMS">CAMS</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Civil">Civil</option>
                 <option value="CSE">CSE</option>
+                <option value="CSE-AIML&IOT">CSE-AIML&IOT</option>
+                <option value="CSE-(CyS,DS)_and_AI&DS">CSE-(CyS,DS)_and_AI&DS</option>
+                <option value="Director">Director</option>
                 <option value="EEE">EEE</option>
-                <option value="AIML">AIML</option>
-                <option value="IoT">IoT</option>
-                <option value="CSE_AIDS">CSE</option>
-                <option value="CSE_CYS">CSE</option>
-                <option value="CSE_DS">CSE</option>
                 <option value="ECE">ECE</option>
-                <option value="MECH">MECH</option>
-                <option value="CIVIL">CIVIL</option>
+                <option value="EIE">EIE</option>
+                <option value="English">English</option>
+                <option value="GRO">GRO</option>
+                <option value="HR">HR</option>
+                <option value="IQAC">IQAC</option>
                 <option value="IT">IT</option>
-                <option value="ADMIN">ADMIN</option>
-                <option value="RESEARCH">RESEARCH</option>
-                <option value="COMMON">COMMON</option>
+                <option value="MECH">MECH</option>
+                <option value="Other">Other</option>
+                <option value="PAAC">PAAC</option>
+                <option value="Placement">Placement</option>
+                <option value="Principal">Principal</option>
+                <option value="Purchase">Purchase</option>
+                <option value="RCC">RCC</option>
+                <option value="SSC">SSC</option>
+                <option value="VJ_Hub">VJ_Hub</option>
               </select>
             </div>
 
@@ -637,16 +650,12 @@ const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
                 <option value="C">C</option>
                 <option value="D">D</option>
                 <option value="E">E</option>
-                <option value="F">F</option>
-                <option value="G">G</option>
-                <option value="H">H</option>
                 <option value="PG">PG</option>
-                <option value="MAIN">MAIN</option>
-                <option value="LIB">LIB</option>
-                <option value="AUD">AUD</option>
-                <option value="CAF">CAF</option>
-                <option value="HOSTEL">HOSTEL</option>
-                <option value="OTHER">OTHER</option>
+                <option value="Library">LIB</option>
+                <option value="Auditorium">AUD</option>
+                <option value="Cafeteria">CAF</option>
+                <option value="Hostel">HOSTEL</option>
+                <option value="Other">OTHER</option>
               </select>
             </div>
           </div>

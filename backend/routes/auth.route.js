@@ -3,8 +3,6 @@ import {
 	logout,
 	checkAuth,
 	getUserById,
-	completeRegistration,
-	checkRegistrationStatus,
 	updateProfile,
 } from "../controllers/auth.controller.js";
 import { verifyToken } from "../middleware/verifyToken.js";
@@ -18,10 +16,6 @@ const router = express.Router();
 // Auth check (no rate limiting needed for this)
 router.get("/check-auth", verifyToken, checkAuth);
 router.get("/user/:userId", verifyToken, getUserById);
-
-// Registration endpoints
-router.get("/registration-status", verifyToken, checkRegistrationStatus);
-router.post("/complete-registration", verifyToken, completeRegistration);
 
 // Profile endpoints
 router.put("/update-profile", verifyToken, updateProfile);
@@ -53,38 +47,73 @@ router.get("/google",
 	passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
+// Custom OAuth error handler middleware
+const handleOAuthError = (err, req, res, next) => {
+	if (err) {
+		console.error("❌ OAuth error caught:", err.message);
+		const frontendURL = config.urls.client;
+		
+		let errorParam = 'auth_failed';
+		
+		if (err.message === 'INVALID_EMAIL_DOMAIN') {
+			errorParam = 'invalid_domain';
+		} else if (err.message === 'USER_NOT_IN_DATABASE') {
+			errorParam = 'user_not_registered';
+		} else if (err.message === 'GOOGLE_ID_MISMATCH') {
+			errorParam = 'google_mismatch';
+		}
+		
+		const redirectURL = `${frontendURL}/login?error=${errorParam}`;
+		console.log("🔗 Redirecting with error:", redirectURL);
+		
+		return res.redirect(redirectURL);
+	}
+	next();
+};
+
 router.get("/google/callback",
-	passport.authenticate("google", { session: false }),
-	async (req, res) => {
-		try {
-			// Generate JWT token for the authenticated user
-			const token = generateTokenAndSetCookie(res, req.user._id, req.user.role);
-
-			const frontendURL = config.urls.client;
-
-			// Check if user needs to complete registration
-			const needsRegistration = req.user.role === 'pending' ||
-				(req.user.role === 'faculty' && (!req.user.department || !req.user.facultyId));
-
-			let redirectURL;
-			if (needsRegistration) {
-				redirectURL = `${frontendURL}/complete-registration?auth=success`;
-				console.log("🔗 New user - redirecting to registration:", redirectURL);
-			} else {
-				redirectURL = `${frontendURL}/dashboard?auth=success`;
-				console.log("🔗 Existing user - redirecting to dashboard:", redirectURL);
+	(req, res, next) => {
+		passport.authenticate("google", { session: false }, (err, user, info) => {
+			if (err) {
+				// Pass error to the error handler
+				return handleOAuthError(err, req, res, next);
 			}
 
-			res.redirect(redirectURL);
-		} catch (error) {
-			console.error("OAuth callback error:", error);
-			const frontendURL = config.urls.client;
+			if (!user) {
+				// Handle case where user is null
+				const error = new Error('USER_NOT_FOUND');
+				return handleOAuthError(error, req, res, next);
+			}
 
-			const redirectURL = `${frontendURL}/login?error=oauth_failed`;
-			console.log("❌ Error redirect to:", redirectURL);
+			// User authenticated successfully - redirect based on role
+			try {
+				// Generate JWT token for the authenticated user
+				const token = generateTokenAndSetCookie(res, user._id, user.role);
 
-			res.redirect(redirectURL);
-		}
+				const frontendURL = config.urls.client;
+
+				// Determine redirect URL based on user role
+				let redirectURL;
+				const userRole = user.role || 'faculty'; // Default to faculty if no role
+
+				if (userRole === 'admin') {
+					redirectURL = `${frontendURL}/admin/dashboard?auth=success`;
+					console.log("✅ Admin user authenticated - redirecting to admin panel:", redirectURL);
+				} else if (userRole === 'security') {
+					redirectURL = `${frontendURL}/security/dashboard?auth=success`;
+					console.log("✅ Security user authenticated - redirecting to security panel:", redirectURL);
+				} else {
+					// Default to faculty dashboard for faculty or any other role
+					redirectURL = `${frontendURL}/faculty/dashboard?auth=success`;
+					console.log("✅ Faculty user authenticated - redirecting to faculty panel:", redirectURL);
+				}
+
+				res.redirect(redirectURL);
+			} catch (error) {
+				console.error("OAuth callback error:", error);
+				handleOAuthError(error, req, res, next);
+			}
+		})(req, res, next);
 	}
 );
 

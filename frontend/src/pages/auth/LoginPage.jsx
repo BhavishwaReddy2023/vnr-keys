@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import GoogleOAuthButton from "../../components/auth/GoogleOAuthButton";
@@ -8,25 +8,44 @@ import toast from "react-hot-toast";
 const LoginPage = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const hasShownToast = useRef(false);
 
   const { isLoading, error, checkAuth, getRoleBasedRoute } = useAuthStore();
 
+  // Extract search params
+  const authStatus = searchParams.get("auth");
+  const errorParam = searchParams.get("error");
+
   // Handle OAuth callback
   useEffect(() => {
-    const authStatus = searchParams.get("auth");
-    const errorParam = searchParams.get("error");
+    // Prevent showing toast multiple times
+    if (hasShownToast.current) return;
 
     if (authStatus === "success") {
+      hasShownToast.current = true;
       toast.success("Successfully logged in with Google!");
       checkAuth().then(() => {
         const route = getRoleBasedRoute();
         navigate(route, { replace: true });
       });
-    } else if (errorParam === "oauth_failed") {
-      toast.error("Google authentication failed. Please try again.");
+    } else if (errorParam) {
+      hasShownToast.current = true;
+      // Handle different error types
+      const errorMessages = {
+        invalid_domain: "❌ Email is not valid. Please use your @vnrvjiet.in email address. Contact admin if you need access.",
+        user_not_registered: "❌ Email is not registered in the system. Please contact the admin to get access.",
+        google_mismatch: "⚠️ Your Google account is linked to a different account. Contact admin for support.",
+        auth_failed: "❌ Authentication failed. Please try again."
+      };
+      
+      const errorMessage = errorMessages[errorParam] || errorMessages.auth_failed;
+      toast.error(errorMessage);
+      console.error("Auth error:", errorParam);
+      
+      // Clean up URL after showing error
+      window.history.replaceState({}, "", window.location.pathname);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams.get("auth")]);
+  }, [authStatus, errorParam, checkAuth, getRoleBasedRoute, navigate]);
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 bg-gradient-to-br from-blue-950 via-slate-900 to-black">

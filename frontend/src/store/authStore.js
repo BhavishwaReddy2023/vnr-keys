@@ -82,40 +82,6 @@ export const useAuthStore = create((set, get) => ({
 		return requiredRoles.includes(user.role);
 	},
 
-	// Complete user registration after OAuth
-	completeRegistration: async (registrationData) => {
-		set({ isLoading: true, error: null });
-
-		try {
-			const response = await axios.post(`${API_URL}/complete-registration`, registrationData);
-
-			set({
-				user: response.data.user,
-				isAuthenticated: true,
-				isLoading: false,
-				error: null
-			});
-
-			handleSuccess(response.data.message || "Registration completed successfully!");
-			return response.data;
-		} catch (error) {
-			const errorMessage = handleError(error);
-			set({ error: errorMessage, isLoading: false });
-			throw error;
-		}
-	},
-
-	// Check registration status
-	checkRegistrationStatus: async () => {
-		try {
-			const response = await axios.get(`${API_URL}/registration-status`);
-			return response.data;
-		} catch (error) {
-			console.error("Check registration status error:", error);
-			throw error;
-		}
-	},
-
 	logout: async () => {
 		set({ isLoading: true, error: null });
 		try {

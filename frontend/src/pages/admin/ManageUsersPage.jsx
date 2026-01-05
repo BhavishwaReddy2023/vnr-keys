@@ -7,7 +7,8 @@ import {
   Trash2,
   CheckCircle,
   XCircle,
-  Filter
+  Filter,
+  Plus
 } from 'lucide-react';
 import axios from 'axios';
 import { handleError, handleSuccess } from '../../utils/errorHandler';
@@ -20,6 +21,7 @@ const ManageUsersPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [showEditModal, setShowEditModal] = useState(false);
+  const [showAddModal, setShowAddModal] = useState(false);
   const [editingUser, setEditingUser] = useState(null);
 
   const API_URL = import.meta.env.VITE_ENVIRONMENT === "local"
@@ -85,6 +87,17 @@ const ManageUsersPage = () => {
     }
   };
 
+  const handleAddUser = async (userData) => {
+    try {
+      await axios.post(`${API_URL}/users`, userData);
+      handleSuccess('User created successfully');
+      setShowAddModal(false);
+      fetchUsers();
+    } catch (error) {
+      handleError(error, 'Failed to create user');
+    }
+  };
+
   const getRoleBadgeColor = (role) => {
     switch (role) {
       case 'admin': return 'bg-red-500';
@@ -135,6 +148,13 @@ const ManageUsersPage = () => {
                 <option value="security">Security</option>
               </select>
             </div>
+            <button
+              onClick={() => setShowAddModal(true)}
+              className="flex items-center gap-2 px-4 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium"
+            >
+              <Plus className="h-5 w-5" />
+              Add User
+            </button>
           </div>
         </div>
 
@@ -244,6 +264,14 @@ const ManageUsersPage = () => {
           onSave={handleUpdateUser}
         />
       )}
+
+      {/* Add User Modal */}
+      {showAddModal && (
+        <AddUserModal
+          onClose={() => setShowAddModal(false)}
+          onSave={handleAddUser}
+        />
+      )}
     </div>
   );
 };
@@ -315,6 +343,192 @@ const EditUserModal = ({ user, onClose, onSave }) => {
               className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
             >
               Save Changes
+            </button>
+          </div>
+        </form>
+      </motion.div>
+    </div>
+  );
+};
+
+// Add User Modal Component
+const AddUserModal = ({ onClose, onSave }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    role: 'faculty',
+    department: '',
+    facultyId: ''
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const departments = [
+    'Automobile',
+    'Chemistry',
+    'Physics',
+    'Maths',
+    'English',
+    'Humanity and sciences(H&S)',
+    'Civil',
+    'CSE',
+    'CSE-AIML&IOT',
+    'CSE-(CyS,DS)_and_AI&DS',
+    'EEE',
+    'ADMIN',
+    'Research',
+    'Accounts',
+    'Academic',
+    'Admission',
+    'IQAC',
+    'BioTech',
+    'Library',
+    'AE',
+    'CAMS',
+    'SSC',
+    'Placement',
+    'HR',
+    'ECE',
+    'EIE',
+    'MECH',
+    'VJ_Hub',
+    'GRO',
+    'RCC',
+    'IT',
+    'Other'
+  ];
+
+  const validateForm = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.email.trim()) newErrors.email = 'Email is required';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Invalid email format';
+    if (formData.role === 'faculty' && !formData.department) {
+      newErrors.department = 'Department is required for faculty';
+    }
+    if (formData.role === 'faculty' && !formData.facultyId.trim()) {
+      newErrors.facultyId = 'Faculty ID is required for faculty';
+    }
+    return newErrors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    onSave(formData);
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-60">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="bg-gray-800 rounded-xl p-6 w-full max-w-md mx-4"
+      >
+        <h3 className="text-xl font-bold text-white mb-4">Add New User</h3>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-1">Name *</label>
+            <input
+              type="text"
+              value={formData.name}
+              onChange={(e) => {
+                setFormData({ ...formData, name: e.target.value });
+                setErrors({ ...errors, name: '' });
+              }}
+              className={`w-full px-3 py-2 bg-gray-700 border ${errors.name ? 'border-red-500' : 'border-gray-600'} rounded-lg text-white focus:outline-none focus:border-blue-500`}
+              placeholder="e.g., John Doe"
+            />
+            {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name}</p>}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-1">Email *(only @vnrvjiet.in)</label>
+            <input
+              type="email"
+              value={formData.email}
+              onChange={(e) => {
+                setFormData({ ...formData, email: e.target.value });
+                setErrors({ ...errors, email: '' });
+              }}
+              className={`w-full px-3 py-2 bg-gray-700 border ${errors.email ? 'border-red-500' : 'border-gray-600'} rounded-lg text-white focus:outline-none focus:border-blue-500`}
+              placeholder="e.g., john@vnrvjiet.in"
+            />
+            {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-1">Role *</label>
+            <select
+              value={formData.role}
+              onChange={(e) => {
+                setFormData({ ...formData, role: e.target.value });
+                setErrors({ ...errors, role: '' });
+              }}
+              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:border-blue-500"
+            >
+              <option value="faculty">Faculty</option>
+              <option value="security">Security</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+
+          {formData.role === 'faculty' && (
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-1">Department {formData.role === 'faculty' ? '*' : ''}</label>
+              <select
+                value={formData.department}
+                onChange={(e) => {
+                  setFormData({ ...formData, department: e.target.value });
+                  setErrors({ ...errors, department: '' });
+                }}
+                className={`w-full px-3 py-2 bg-gray-700 border ${errors.department ? 'border-red-500' : 'border-gray-600'} rounded-lg text-white focus:outline-none focus:border-blue-500`}
+              >
+                <option value="">Select Department</option>
+                {departments.map((dept) => (
+                  <option key={dept} value={dept}>
+                    {dept}
+                  </option>
+                ))}
+              </select>
+              {errors.department && <p className="text-red-400 text-sm mt-1">{errors.department}</p>}
+            </div>
+          )}
+
+          {formData.role === 'faculty' && (
+            <div>
+              <label className="block text-sm font-medium text-gray-300 mb-1">Faculty ID *</label>
+              <input
+                type="text"
+                value={formData.facultyId}
+                onChange={(e) => {
+                  setFormData({ ...formData, facultyId: e.target.value });
+                  setErrors({ ...errors, facultyId: '' });
+                }}
+                className={`w-full px-3 py-2 bg-gray-700 border ${errors.facultyId ? 'border-red-500' : 'border-gray-600'} rounded-lg text-white focus:outline-none focus:border-blue-500`}
+                placeholder="e.g., FAC001"
+              />
+              {errors.facultyId && <p className="text-red-400 text-sm mt-1">{errors.facultyId}</p>}
+            </div>
+          )}
+
+          <div className="flex justify-end space-x-3 pt-4">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+            >
+              Create User
             </button>
           </div>
         </form>

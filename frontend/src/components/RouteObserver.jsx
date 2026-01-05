@@ -7,7 +7,7 @@ const RouteObserver = () => {
   const { isAuthenticated } = useAuthStore();
 
   useEffect(() => {
-    if (isAuthenticated && location.pathname !== '/login' && location.pathname !== '/complete-registration') {
+    if (isAuthenticated && location.pathname !== '/login') {
       localStorage.setItem('lastVisitedRoute', location.pathname);
     }
   }, [location.pathname, isAuthenticated]);

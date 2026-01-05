@@ -23,16 +23,19 @@ const apiKeySchema = new mongoose.Schema(
       type: String,
       required: true,
       enum: [
-        "CSE", // Computer Science Engineering
-        "EEE", // Electrical and Electronics Engineering
-        "AIML", // Artificial Intelligence and Machine Learning
-        "IoT", // Internet of Things
-        "ECE", // Electronics and Communication Engineering
-        "MECH", // Mechanical Engineering
-        "CIVIL", // Civil Engineering
-        "IT", // Information Technology
-        "ADMIN", // Administration
-        "RESEARCH", // Research Department
+        "Automobile",
+        "Chemistry",
+        "Civil",
+        "CSE",
+        "CSE-AIML&IOT",
+        "CSE-(CyS,DS)_and_AI&DS",
+        "EEE",
+        "ECE",
+        "EIE",
+        "English",
+        "MECH",
+        "IT",
+        "Other"
       ],
     },
     description: {
@@ -93,8 +96,7 @@ const apiKeySchema = new mongoose.Schema(
 );
 
 // Indexes for better performance
-apiKeySchema.index({ keyId: 1 });
-apiKeySchema.index({ apiKey: 1 });
+// Note: keyId and apiKey have unique: true so they automatically create indexes
 apiKeySchema.index({ department: 1 });
 apiKeySchema.index({ isActive: 1 });
 apiKeySchema.index({ createdBy: 1 });

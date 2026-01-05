@@ -5,7 +5,6 @@ const keySchema = new mongoose.Schema(
     keyNumber: {
       type: String,
       required: true,
-      // unique: true,
       trim: true,
     },
     keyName: {
@@ -72,32 +71,46 @@ const keySchema = new mongoose.Schema(
     },
     category: {
       type: String,
-      enum: ["classroom", "lab", "office", "storage", "library", "auditorium", "cafeteria", "hostel", "maintenance", "security", "other"],
+      enum: ["classroom", "lab", "office", "storage", "library", "auditorium", "cafeteria", "hostel", "maintenance", "security", "staffroom", "other"],
       default: "other",
     },
     department: {
       type: String,
       enum: [
-        "CSE", // Computer Science Engineering
-        "EEE", // Electrical and Electronics Engineering
-        "AIML", // Artificial Intelligence and Machine Learning
-        "CSE_CYS", // CSE - Cyber Security
-        "CSE_DS", // CSE - Data Science
-        "CSE_AIDS", // CSE - AI & Data Science
-        "IoT", // Internet of Things
-        "ECE", // Electronics and Communication Engineering
-        "MECH", // Mechanical Engineering
-        "CIVIL", // Civil Engineering
-        "IT", // Information Technology
-        "ADMIN", // Administration
-        "RESEARCH", // Research Department
-        "COMMON" // Common keys accessible to all departments
+        "Accounts",
+        "Admission",
+        "Automobile",
+        "CAMS",
+        "Chemistry",
+        "Civil",
+        "CSE",
+        "CSE-AIML&IOT",
+        "CSE-(CyS,DS)_and_AI&DS",
+        "Director",
+        "EEE",
+        "ECE",
+        "EIE",
+        "English",
+        "GRO",
+        "HR",
+        "Humanity and sciences(H&S)",
+        "IQAC",
+        "IT",
+        "MECH",
+        "Other",
+        "PAAC",
+        "Placement",
+        "Principal",
+        "Purchase",
+        "RCC",
+        "SSC",
+        "VJ_Hub"
       ],
-      default: "COMMON", // Default to common access
+      default: "Other", // Default to Other
     },
     block: {
       type: String,
-      enum: ["A", "B", "C", "D", "E", "F", "G", "H", "PG", "MAIN", "LIB", "AUD", "CAF", "HOSTEL", "OTHER"],
+      enum: ["A", "B", "C", "D", "E", "F", "G", "H", "P", "PG", "SAE", "MAIN", "LIB", "AUD", "CAF", "HOSTEL", "OTHER"],
       default: "A",
     },
     isActive: {
@@ -112,7 +125,6 @@ const keySchema = new mongoose.Schema(
 );
 
 // Indexes for better performance
-// Note: keyNumber already has unique index from schema definition
 keySchema.index({ status: 1 });
 keySchema.index({ "takenBy.userId": 1 });
 keySchema.index({ frequentlyUsed: 1 });

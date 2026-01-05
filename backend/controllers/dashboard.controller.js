@@ -256,6 +256,124 @@ export const getAllUsers = asyncHandler(async (req, res) => {
 });
 
 /**
+ * Create a new user (admin only)
+ */
+export const createUser = asyncHandler(async (req, res) => {
+	const { name, email, role, department, facultyId } = req.body;
+
+	// Validate required fields
+	if (!name || !email || !role) {
+		return res.status(400).json({
+			success: false,
+			message: "Name, email, and role are required"
+		});
+	}
+
+	// Validate role
+	const validRoles = ['admin', 'faculty', 'security'];
+	if (!validRoles.includes(role)) {
+		return res.status(400).json({
+			success: false,
+			message: "Invalid role. Must be one of: admin, faculty, security"
+		});
+	}
+
+	// Validate department for faculty
+	if (role === 'faculty' && !department) {
+		return res.status(400).json({
+			success: false,
+			message: "Department is required for faculty users"
+		});
+	}
+
+	// Validate facultyId for faculty
+	if (role === 'faculty' && !facultyId) {
+		return res.status(400).json({
+			success: false,
+			message: "Faculty ID is required for faculty users"
+		});
+	}
+
+	// Check if email already exists
+	const existingEmail = await User.findOne({ email });
+	if (existingEmail) {
+		return res.status(409).json({
+			success: false,
+			message: "User with this email already exists"
+		});
+	}
+
+	// Check if facultyId already exists (for faculty users)
+	if (role === 'faculty') {
+		const existingFacultyId = await User.findOne({ facultyId });
+		if (existingFacultyId) {
+			return res.status(409).json({
+				success: false,
+				message: "Faculty ID already exists. Please use a different Faculty ID"
+			});
+		}
+	}
+
+	// Create new user
+	// Note: Since we use Google OAuth, we need a temporary googleId
+	// The actual user will need to login with Google to activate their account
+	const newUser = new User({
+		name: name.trim(),
+		email: email.trim().toLowerCase(),
+		role,
+		department: role === 'faculty' ? department : undefined,
+		facultyId: role === 'faculty' ? facultyId.trim() : undefined,
+		googleId: `manual_${Date.now()}_${Math.random()}`, // Temporary ID for manually created users
+		provider: 'google',
+		isVerified: true // Admin-created users are auto-verified
+	});
+
+	try {
+		await newUser.save();
+	} catch (saveError) {
+		console.error('Error saving user:', saveError.message);
+		// Handle validation errors
+		if (saveError.name === 'ValidationError') {
+			const messages = Object.values(saveError.errors).map(err => err.message);
+			return res.status(400).json({
+				success: false,
+				message: "Validation error: " + messages.join(', ')
+			});
+		}
+		// Handle duplicate key errors
+		if (saveError.code === 11000) {
+			return res.status(409).json({
+				success: false,
+				message: "Email already exists"
+			});
+		}
+		throw saveError;
+	}
+
+	// Transform user data for response
+	const transformedUser = {
+		id: newUser._id.toString(),
+		name: newUser.name,
+		email: newUser.email,
+		role: newUser.role,
+		department: newUser.department,
+		isVerified: newUser.isVerified,
+		lastLogin: newUser.lastLogin,
+		createdAt: newUser.createdAt,
+		updatedAt: newUser.updatedAt
+	};
+
+	res.status(201).json({
+		success: true,
+		message: "User created successfully",
+		data: {
+			user: transformedUser,
+			note: "User needs to login with Google to complete their account setup"
+		}
+	});
+});
+
+/**
  * Update user information
  */
 export const updateUser = asyncHandler(async (req, res) => {
