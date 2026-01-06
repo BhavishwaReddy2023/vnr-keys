@@ -71,7 +71,13 @@ export const getAdminDashboard = asyncHandler(async (req, res) => {
 			},
 			userRole: req.userRole,
 			// Admin has access to all departments
-			accessibleDepartments: ["CSE", "EEE", "AIML", "IoT", "ECE", "MECH", "CIVIL", "IT", "ADMIN", "RESEARCH"]
+			accessibleDepartments: [
+			"Accounts", "Admission", "Automobile", "CAMS", "Chemistry", "Civil",
+			"CSE", "CSE-AIML&IOT", "CSE-(CyS,DS)_and_AI&DS", "Director", "EEE",
+			"ECE", "EIE", "English", "GRO", "HR", "Humanity and sciences(H&S)",
+			"IQAC", "IT", "MECH", "Other", "PAAC", "Placement", "Principal",
+			"Purchase", "RCC", "SSC", "VJ_Hub"
+		]
 		}
 	});
 });
