@@ -588,6 +588,7 @@ export const createKey = asyncHandler(async (req, res) => {
     description,
     category,
     block,
+    department,
     frequentlyUsed,
   } = req.body;
 
@@ -604,6 +605,7 @@ export const createKey = asyncHandler(async (req, res) => {
     description,
     category,
     block,
+    department: department || 'Other',
     frequentlyUsed: frequentlyUsed || false,
   });
 

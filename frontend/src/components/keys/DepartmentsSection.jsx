@@ -18,6 +18,7 @@ const DEPARTMENTS = [
 	{ value: "English", label: "English" },
 	{ value: "GRO", label: "GRO" },
 	{ value: "HR", label: "HR" },
+	{ value: "Humanity and sciences(H&S)", label: "Humanity and sciences(H&S)" },
 	{ value: "IQAC", label: "IQAC" },
 	{ value: "IT", label: "IT" },
 	{ value: "MECH", label: "MECH" },

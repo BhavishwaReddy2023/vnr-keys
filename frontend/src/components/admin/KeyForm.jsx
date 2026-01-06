@@ -76,6 +76,7 @@ const KeyForm = ({
     { value: 'English', label: 'English' },
     { value: 'GRO', label: 'GRO' },
     { value: 'HR', label: 'HR' },
+    { value: 'Humanity and sciences(H&S)', label: 'Humanity and sciences(H&S)' },
     { value: 'IQAC', label: 'IQAC' },
     { value: 'IT', label: 'IT' },
     { value: 'MECH', label: 'MECH' },
@@ -98,7 +99,7 @@ const KeyForm = ({
         description: initialData.description || '',
         category: initialData.category || '',
         block: initialData.block || '',
-        department: initialData.department || 'COMMON',
+        department: initialData.department || 'Other',
         frequentlyUsed: initialData.frequentlyUsed || false
       });
     } else {
@@ -109,7 +110,7 @@ const KeyForm = ({
         description: '',
         category: '',
         block: '',
-        department: 'COMMON',
+        department: 'Other',
         frequentlyUsed: false
       });
     }

@@ -57,20 +57,45 @@ const DepartmentAccordion = ({
 }) => {
 	const grouped = useMemo(() => groupByDepartment(keys), [keys]);
 
+	// Standard department order matching backend schema
 	const departmentOrder = [
+		"Accounts",
+		"Admission",
+		"Automobile",
+		"CAMS",
+		"Chemistry",
+		"Civil",
 		"CSE",
+		"CSE-AIML&IOT",
+		"CSE-(CyS,DS)_and_AI&DS",
+		"Director",
 		"EEE",
-		"AIML",
-		"IoT",
 		"ECE",
-		"MECH",
-		"CIVIL",
+		"EIE",
+		"English",
+		"GRO",
+		"HR",
+		"Humanity and sciences(H&S)",
+		"IQAC",
 		"IT",
-		"ADMIN",
-		"RESEARCH",
-		"COMMON",
+		"MECH",
+		"Other",
+		"PAAC",
+		"Placement",
+		"Principal",
+		"Purchase",
+		"RCC",
+		"SSC",
+		"VJ_Hub",
+		// Add any remaining departments found in data
 		...Object.keys(grouped).filter(
-			(d) => !["CSE","EEE","AIML","IoT","ECE","MECH","CIVIL","IT","ADMIN","RESEARCH","COMMON"].includes(d)
+			(d) => ![
+				"Accounts", "Admission", "Automobile", "CAMS", "Chemistry", "Civil", 
+				"CSE", "CSE-AIML&IOT", "CSE-(CyS,DS)_and_AI&DS", "Director", "EEE", 
+				"ECE", "EIE", "English", "GRO", "HR", "Humanity and sciences(H&S)", 
+				"IQAC", "IT", "MECH", "Other", "PAAC", "Placement", "Principal", 
+				"Purchase", "RCC", "SSC", "VJ_Hub"
+			].includes(d)
 		),
 	];
 

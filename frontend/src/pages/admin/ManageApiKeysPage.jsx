@@ -28,6 +28,7 @@ const ManageApiKeysPage = () => {
   const [editingKey, setEditingKey] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
   const [keyToDelete, setKeyToDelete] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [keysToShow, setKeysToShow] = useState(10); // Default for larger screens
@@ -101,8 +102,36 @@ const ManageApiKeysPage = () => {
     }
   };
 
+  const handleCreateKey = async (keyData) => {
+    try {
+      setIsSubmitting(true);
+      await createKey(keyData);
+      setShowAddModal(false);
+    } catch (error) {
+      console.error('Error creating key:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleUpdateKey = async (keyData) => {
+    if (!editingKey) return;
+
+    try {
+      setIsSubmitting(true);
+      await updateKey(editingKey.id, keyData);
+      setShowEditModal(false);
+      setEditingKey(null);
+    } catch (error) {
+      console.error('Error updating key:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const openEditModal = (key) => {
     setEditingKey(key);
+    setShowEditModal(true);
   };
 
   const openDeleteModal = (key) => {
@@ -114,6 +143,7 @@ const ManageApiKeysPage = () => {
     setEditingKey(null);
     setShowDeleteModal(false);
     setShowAddModal(false);
+    setShowEditModal(false);
     setKeyToDelete(null);
   };
 
@@ -291,8 +321,20 @@ const ManageApiKeysPage = () => {
         <AddKeyModal
           isOpen={showAddModal}
           onClose={closeModals}
-          onSubmit={createKey}
+          onSubmit={handleCreateKey}
           isLoading={isSubmitting}
+        />
+      )}
+
+      {/* Edit Key Modal */}
+      {showEditModal && editingKey && (
+        <AddKeyModal
+          isOpen={showEditModal}
+          onClose={closeModals}
+          onSubmit={handleUpdateKey}
+          isLoading={isSubmitting}
+          initialData={editingKey}
+          isEdit={true}
         />
       )}
 
@@ -465,7 +507,7 @@ const DeleteConfirmationModal = ({ isOpen, onClose, onConfirm, keyData, isLoadin
 };
 
 // Add Key Modal Component
-const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
+const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading, initialData, isEdit }) => {
   const [formData, setFormData] = useState({
     keyNumber: '',
     keyName: '',
@@ -477,11 +519,19 @@ const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
     frequentlyUsed: false
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await onSubmit(formData);
-      onClose();
+  useEffect(() => {
+    if (initialData) {
+      setFormData({
+        keyNumber: initialData.keyNumber || '',
+        keyName: initialData.keyName || '',
+        location: initialData.location || '',
+        description: initialData.description || '',
+        category: initialData.category || 'other',
+        department: initialData.department || 'Other',
+        block: initialData.block || 'A',
+        frequentlyUsed: initialData.frequentlyUsed || false
+      });
+    } else {
       setFormData({
         keyNumber: '',
         keyName: '',
@@ -492,8 +542,16 @@ const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
         block: 'A',
         frequentlyUsed: false
       });
+    }
+  }, [initialData, isOpen]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await onSubmit(formData);
+      onClose();
     } catch (error) {
-      console.error('Error creating key:', error);
+      console.error('Error:', error);
     }
   };
 
@@ -515,7 +573,7 @@ const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
         className="bg-gray-900 rounded-xl p-6 max-w-2xl w-full border border-gray-700 max-h-[90vh] overflow-y-auto"
       >
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold text-white">Add New Key</h3>
+          <h3 className="text-xl font-bold text-white">{isEdit ? 'Edit Key' : 'Add New Key'}</h3>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-white transition-colors"
@@ -591,6 +649,7 @@ const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
                 <option value="hostel">Hostel</option>
                 <option value="maintenance">Maintenance</option>
                 <option value="security">Security</option>
+                <option value="staffroom">Staffroom</option>
                 <option value="other">Other</option>
               </select>
             </div>
@@ -621,6 +680,7 @@ const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
                 <option value="English">English</option>
                 <option value="GRO">GRO</option>
                 <option value="HR">HR</option>
+                <option value="Humanity and sciences(H&S)">Humanity and sciences(H&S)</option>
                 <option value="IQAC">IQAC</option>
                 <option value="IT">IT</option>
                 <option value="MECH">MECH</option>
@@ -704,12 +764,12 @@ const AddKeyModal = ({ isOpen, onClose, onSubmit, isLoading }) => {
               {isLoading ? (
                 <>
                   <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Creating...
+                  {isEdit ? 'Updating...' : 'Creating...'}
                 </>
               ) : (
                 <>
                   <Plus className="w-4 h-4" />
-                  Create Key
+                  {isEdit ? 'Update Key' : 'Create Key'}
                 </>
               )}
             </button>

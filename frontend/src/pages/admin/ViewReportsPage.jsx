@@ -603,6 +603,7 @@ const ViewReportsPage = () => {
                 <option value="English">English</option>
                 <option value="GRO">GRO</option>
                 <option value="HR">HR</option>
+                <option value="Humanity and sciences(H&S)">Humanity and sciences(H&S)</option>
                 <option value="IQAC">IQAC</option>
                 <option value="IT">IT</option>
                 <option value="MECH">MECH</option>

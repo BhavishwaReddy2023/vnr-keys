@@ -90,6 +90,7 @@ export const getDepartmentLabel = (department) => {
     'English': 'English',
     'GRO': 'GRO',
     'HR': 'Human Resources',
+    'Humanity and sciences(H&S)': 'Humanity and Sciences (H&S)',
     'IQAC': 'IQAC',
     'IT': 'Information Technology',
     'MECH': 'Mechanical Engineering',
